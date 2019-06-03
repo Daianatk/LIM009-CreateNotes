@@ -12,7 +12,7 @@ const itemNote = (objNote) => {
     <button value="true" id="btn-chec-${objNote.state}" class="btn-circle">
     <i class="far fa-check-circle"></i></button> `
     : `<button value="false" id="btn-chec-${objNote.state}" class="btn-circle">
-    <i class="far fa-check-circle"></i></button>`}
+    <i class="fas fa-check-circle"></i></button>`}
     <button id="btn-deleted-${objNote.id}" class="btn-circle">
     <i class="fas fa-minus-circle"></i>
     </button>
@@ -24,6 +24,7 @@ const itemNote = (objNote) => {
     const newState= state.value; 
     if(newState==="false")  {
     updateStateNoteSubmit(objNote,newState)
+      console.log(newState)
     const btnColor = liElement.querySelector(`#btn-chec-${objNote.state}`)
     btnColor.style.color= '#318031';
   }
