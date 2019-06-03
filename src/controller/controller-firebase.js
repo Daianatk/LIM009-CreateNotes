@@ -6,10 +6,10 @@ export const signIn = (email, password) =>
 export const signOut = () => firebase.auth().signOut();
 
 // AGREGA NOTAS
-export const addNote = (textNote) =>
+export const addNote = (textNote, state=true) =>
   firebase.firestore().collection('note').add({
     note: textNote,
-    state: true
+    state: state,
   })
 
 // ELIMINAR NOTAS
@@ -26,3 +26,9 @@ export const getNotes = (callback) =>
       });
       callback(data);
     }); 
+
+  export const updateStateNote = (idNote ,newState) =>{
+    return firebase.firestore().collection('note').doc(idNote).update({
+      state : newState
+    });
+  }

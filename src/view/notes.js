@@ -1,5 +1,5 @@
 import { header } from "./header.js"
-import { addNoteOnSubmit, deleteNoteOnClick } from "../view-controller.js";
+import { addNoteOnSubmit, deleteNoteOnClick, updateStateNoteSubmit } from "../view-controller.js";
 
 const itemNote = (objNote) => {
   const liElement = document.createElement('li');
@@ -7,20 +7,30 @@ const itemNote = (objNote) => {
     <span>
       <span>${objNote.note}</span>
     </span>
-    <button id="btn-chec-${objNote.state}" class="btn-circle">
-    <i class="far fa-check-circle"></i></button> 
+    ${objNote.state === 'true' 
+              ?`
+    <button value="true" id="btn-chec-${objNote.state}" class="btn-circle">
+    <i class="far fa-check-circle"></i></button> `
+    : `<button value="false" id="btn-chec-${objNote.state}" class="btn-circle">
+    <i class="far fa-check-circle"></i></button>`}
     <button id="btn-deleted-${objNote.id}" class="btn-circle">
     <i class="fas fa-minus-circle"></i>
     </button>
   `;
 
-  const btnColor = liElement.querySelector(`#btn-chec-${objNote.state}`)
-  btnColor.addEventListener('click', (e)=>{
-    e.preventDefault()
-    btnColor.style.color= '#f5faf7';
-  })
+  // AGREGANDO EVENTO DE CLICK AL BOTON EDITAR ESTADO
+    const state = liElement.querySelector(`#btn-chec-${objNote.state}`)
+    state.addEventListener('click',()=>{
+    const newState= state.value; 
+    if(newState==="false")  {
+    updateStateNoteSubmit(objNote,newState)
+    const btnColor = liElement.querySelector(`#btn-chec-${objNote.state}`)
+    btnColor.style.color= '#318031';
+  }
+  });
 
-  // agregando evento de click al btn eliminar una nota
+
+  // AGREGANDO EVENTO DE CLICK AL BOTON ELIMINAR
   liElement.querySelector(`#btn-deleted-${objNote.id}`)
     .addEventListener('click', () => deleteNoteOnClick(objNote));
   return liElement;
@@ -63,6 +73,7 @@ export default(note)=>{
   const headerHome = divContainer.querySelector("#header-content")     
   headerHome.appendChild(header(note));
 
+   // AGREGANDO EVENTO DE CLICK AL BOTON AÑADIR NOTA
   const buttonAddNote = divContainer.querySelector('#btn-notes');
   const div = divContainer.querySelector('#list-notes');
   note.forEach(note => {

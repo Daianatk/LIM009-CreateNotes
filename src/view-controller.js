@@ -1,4 +1,4 @@
-import { addNote, deleteNote, signIn, signOut } from "./controller/controller-firebase.js";
+import { addNote, deleteNote, signIn, signOut, updateStateNote } from "./controller/controller-firebase.js";
 
 const changeHash = (hash) =>  {
   location.hash = hash;
@@ -41,5 +41,10 @@ export const signOutSubmit = (event) =>{
     const errorMessage = error.message;
     alert( `Error: ${errorMessage} Tipo:${errorCode}`)
   })
+}
+
+// EDITAR ESTADO DE LA NOTA
+  export const updateStateNoteSubmit = (objNote ,newState) => {
+      updateStateNote(objNote.id ,newState)
 }
 

@@ -134,21 +134,19 @@ header{
 	
 	.btn-circle {
 		border-radius: 50%;
-		background:#4aa142;
+		background:#f1f3f1;
 		border :1px solid  rgb(242, 247, 245);
 		color:#161315 ;
-		
+		cursor: pointer;
 	}
 	
-	.btn-circle:hover{
-		background:#f8fcfa;
-		border :1px solid  #f5faf7;
-		color:#0a0a0a ;
-	}
-
   .columns{
 	text-align: center;
 	margin: 40px 20px;
+}
+
+.display-none{
+	display: none;
 }
 
 .columns1{
