@@ -26,8 +26,6 @@ const itemNote = (objNote) => {
     console.log(newState)
     if(newState === 'false'){
       state.style.color= '#318031';
-     //const btnColor = liElement.querySelector(`#btn-chec-${objNote.state}`)
-     //btnColor.style.color= '#318031';
     }
   });
 
