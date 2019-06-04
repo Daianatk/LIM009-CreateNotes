@@ -10,7 +10,7 @@ const itemNote = (objNote) => {
     ${objNote.state === 'true' 
               ?`
     <button value="true" id="btn-chec-${objNote.state}" class="btn-circle">
-    <i class="far fa-check-circle"></i></button> `
+    <i class="fas fa-check-circle"></i></button> `
     : `<button value="false" id="btn-chec-${objNote.state}" class="btn-circle">
     <i class="far fa-check-circle"></i></button>`}
     <button id="btn-deleted-${objNote.id}" class="btn-circle">
@@ -19,14 +19,18 @@ const itemNote = (objNote) => {
   `;
 
   // AGREGANDO EVENTO DE CLICK AL BOTON EDITAR ESTADO
-    const state = liElement.querySelector(`#btn-chec-${objNote.state}`)
+  const state = liElement.querySelector(`#btn-chec-${objNote.state}`)
     state.addEventListener('click',()=>{
     const newState= state.value; 
-    if(newState==="false")  {
     updateStateNoteSubmit(objNote,newState)
-    const btnColor = liElement.querySelector(`#btn-chec-${objNote.state}`)
-    btnColor.style.color= '#318031';
-  }
+    console.log(newState)
+    if(newState === 'false'){
+      state.style.color= '#318031';
+     //const btnColor = liElement.querySelector(`#btn-chec-${objNote.state}`)
+     //btnColor.style.color= '#318031';
+    }
+
+    
   });
 
 
@@ -35,8 +39,6 @@ const itemNote = (objNote) => {
     .addEventListener('click', () => deleteNoteOnClick(objNote));
   return liElement;
 }
-
-
 
 export default(note)=>{
   const divContainer = document.createElement('div');
@@ -49,7 +51,7 @@ export default(note)=>{
   <div id="contenido">
   <div class="container">
 
-      <h1>Lista de Notas</h1>
+      <h1>Mis Notas</h1>
       <div class="row">
           <div class="columns">
               <form id="formulario">
@@ -59,7 +61,7 @@ export default(note)=>{
               </form>
           </div>
           <div class="columns1">
-              <h2>Mis Notas</h2>
+              <h2>---Lista de Notas---</h2>
               <div id="list-notes"></div>
           </div>
       </div>

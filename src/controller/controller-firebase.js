@@ -27,6 +27,7 @@ export const getNotes = (callback) =>
       callback(data);
     }); 
 
+// ACTUALIZAR ESTADO DE LAS NOTAS
   export const updateStateNote = (idNote ,newState) =>{
     return firebase.firestore().collection('note').doc(idNote).update({
       state : newState
