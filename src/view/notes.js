@@ -23,21 +23,12 @@ const itemNote = (objNote) => {
     state.addEventListener('click',()=>{
     const newState= state.value; 
     updateStateNoteSubmit(objNote,newState)
-<<<<<<< HEAD
     console.log(newState)
     if(newState === 'false'){
       state.style.color= '#318031';
      //const btnColor = liElement.querySelector(`#btn-chec-${objNote.state}`)
      //btnColor.style.color= '#318031';
     }
-
-    
-=======
-      console.log(newState)
-    const btnColor = liElement.querySelector(`#btn-chec-${objNote.state}`)
-    btnColor.style.color= '#318031';
-  }
->>>>>>> 7c228dd02451330c15c5087a7df693e7a43126f7
   });
 
 
