@@ -13,7 +13,7 @@
     "firebase-mock",
     "firebase"
   ],
-  "author": "Daniela Gonzales",
+  "author": "Daiana",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.2.2",
